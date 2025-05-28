@@ -33,10 +33,11 @@ function checkGuess() {
   hideAllMessages();
 
   if (guess === targetNumber) {
-     numberOfGuessesMessage.style.display = 'block';
+    numberOfGuessesMessage.style.display = 'block';
     numberOfGuessesMessage.innerHTML = `You made ${attempts} guesses`;
 
     correctMessage.style.display = 'block';
+    maxGuessesMessage.style.display="none";
 
     submitButton.disabled = true;
     guessInput.disabled = true;
@@ -57,12 +58,12 @@ function checkGuess() {
     numberOfGuessesMessage.innerHTML = `You guessed ${guess}. <br> ${remainingAttempts} guesses remaining`;
   }
 
-  if (attempts === maxNumberOfAttempts) {
+  if (attempts === maxNumberOfAttempts && guess !== targetNumber) {
     submitButton.disabled = true;
     guessInput.disabled = true;
     tooLowMessage.style.display = 'none';
     tooHighMessage.style.display = 'none';
-    maxGuessesMessage.style.display="block"
+    maxGuessesMessage.style.display="block";
 
     
   }
@@ -97,6 +98,7 @@ function setup() {
   hideAllMessages();
 
   resetButton.style.display = 'none';
+  maxGuessesMessage.style.display="none";
 }
 
 submitButton.addEventListener('click', checkGuess);
