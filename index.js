@@ -62,6 +62,8 @@ function checkGuess() {
     guessInput.disabled = true;
     tooLowMessage.style.display = 'none';
     tooHighMessage.style.display = 'none';
+    maxGuessesMessage.style.display="block"
+
     
   }
 
